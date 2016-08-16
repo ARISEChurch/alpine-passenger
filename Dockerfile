@@ -1,11 +1,11 @@
-FROM alpine:3.2
+FROM alpine:3.4
 
-ENV PASSENGER_VERSION="5.0.28" \
+ENV PASSENGER_VERSION="5.0.30" \
     PATH="/opt/passenger/bin:$PATH"
 
 RUN PACKAGES="ca-certificates ruby procps curl pcre libstdc++ libexecinfo" && \
     BUILD_PACKAGES="build-base ruby-dev linux-headers curl-dev pcre-dev ruby-dev libexecinfo-dev" && \
-    echo 'http://alpine.gliderlabs.com/alpine/v3.2/main' > /etc/apk/repositories && \
+    echo 'http://alpine.gliderlabs.com/alpine/v3.4/main' > /etc/apk/repositories && \
     echo 'http://alpine.gliderlabs.com/alpine/edge/testing' >> /etc/apk/repositories && \
     apk add --update $PACKAGES $BUILD_PACKAGES && \
 # download and extract
