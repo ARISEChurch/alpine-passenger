@@ -4,7 +4,7 @@ ENV PASSENGER_VERSION="5.0.30" \
     PATH="/opt/passenger/bin:$PATH" \
     PASSENGER_MAX_POOL_SIZE="1"
 
-RUN PACKAGES="ca-certificates ruby procps curl pcre libstdc++ libexecinfo" && \
+RUN PACKAGES="ca-certificates ruby ruby-rake procps curl pcre libstdc++ libexecinfo" && \
     BUILD_PACKAGES="build-base ruby-dev linux-headers curl-dev pcre-dev ruby-dev libexecinfo-dev" && \
     echo 'http://alpine.gliderlabs.com/alpine/edge/main' > /etc/apk/repositories && \
     echo 'http://alpine.gliderlabs.com/alpine/edge/testing' >> /etc/apk/repositories && \
