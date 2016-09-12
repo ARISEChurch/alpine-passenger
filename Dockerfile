@@ -2,7 +2,9 @@ FROM alpine:edge
 
 ENV PASSENGER_VERSION="5.0.30" \
     PATH="/opt/passenger/bin:$PATH" \
-    PASSENGER_MAX_POOL_SIZE="1"
+    PASSENGER_MIN_INSTANCES="3" \
+    PASSENGER_MAX_POOL_SIZE="3" \
+    BUNDLE_JOBS=4
 
 RUN PACKAGES="ca-certificates ruby ruby-rake procps curl pcre libstdc++ libexecinfo" && \
     BUILD_PACKAGES="build-base ruby-dev linux-headers curl-dev pcre-dev ruby-dev libexecinfo-dev" && \
