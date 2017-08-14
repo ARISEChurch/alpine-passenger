@@ -1,14 +1,14 @@
-FROM alpine:edge
+FROM ruby:2.3-alpine
 
-ENV PASSENGER_VERSION="5.0.30" \
+ENV PASSENGER_VERSION="5.1.7" \
     PATH="/opt/passenger/bin:$PATH" \
     PASSENGER_MIN_INSTANCES="3" \
     PASSENGER_MAX_POOL_SIZE="3" \
     BUNDLE_JOBS=4
 
-RUN PACKAGES="ca-certificates ruby ruby-rake procps curl pcre libstdc++ libexecinfo" && \
-    BUILD_PACKAGES="build-base ruby-dev linux-headers curl-dev pcre-dev ruby-dev libexecinfo-dev" && \
-    echo 'http://alpine.gliderlabs.com/alpine/edge/main' > /etc/apk/repositories && \
+RUN PACKAGES="ca-certificates procps curl pcre libstdc++ libexecinfo" && \
+    BUILD_PACKAGES="build-base linux-headers curl-dev pcre-dev libexecinfo-dev" && \
+    echo 'http://alpine.gliderlabs.com/alpine/edge/main' >> /etc/apk/repositories && \
     echo 'http://alpine.gliderlabs.com/alpine/edge/testing' >> /etc/apk/repositories && \
     apk add --update $PACKAGES $BUILD_PACKAGES && \
 # download and extract
